@@ -209,7 +209,6 @@ class Garden {
 }
 
 class UI {
-  static makeId(id) { return moduleName + capitalize(id); }
   static get css() {
     return `
 #game.onMenu #cookieGardenHelper {
@@ -321,6 +320,11 @@ class UI {
 `;
   }
 
+  static get readmeLink() { return 'https://github.com/yannprada/'
+      + 'cookie-garden-helper/blob/master/README.md#how-it-works'; }
+
+  static makeId(id) { return moduleName + capitalize(id); }
+
   static numberInput(name, text, title, options) {
     let id = this.makeId(name);
     return `
@@ -374,9 +378,6 @@ class UI {
       doc.elId('cookieGardenHelper').remove();
     };
   }
-
-  static get readmeLink() { return 'https://github.com/yannprada/'
-      + 'cookie-garden-helper/blob/master/README.md#how-it-works'; }
 
   static build(config) {
     doc.qSel('#row2 .productButtons').insertAdjacentHTML('beforeend', `
@@ -440,7 +441,7 @@ class UI {
         </p>
         <p>
           ${this.numberInput(
-            'autoHarvestMiniCpSMult', 'Mini CpS multiplier',
+            'autoHarvestMiniCpSMult', 'Min CpS multiplier',
             'Minimum CpS multiplier for the auto-harvest to happen',
             config.autoHarvestMiniCpSMult
           )}
@@ -465,7 +466,7 @@ class UI {
         </p>
         <p>
           ${this.numberInput(
-            'autoHarvestMiniCpSMultDying', 'Mini CpS multiplier',
+            'autoHarvestMiniCpSMultDying', 'Min CpS multiplier',
             'Minimum CpS multiplier for the auto-harvest to happen',
             config.autoHarvestMiniCpSMultDying
           )}
@@ -486,7 +487,7 @@ class UI {
       </p>
       <p>
         ${this.numberInput(
-          'autoPlantMaxiCpSMult', 'Maxi CpS multiplier',
+          'autoPlantMaxiCpSMult', 'Max CpS multiplier',
           'Maximum CpS multiplier for the auto-plant to happen',
           config.autoPlantMaxiCpSMult
         )}
